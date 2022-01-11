@@ -1,4 +1,4 @@
-const { where } = require('sequelize/dist');
+const { where } = require('sequelize');
 const db = require('../models');
 
 
@@ -74,8 +74,8 @@ const getSpecProduct = async (req, res) => {
 const updateSpecProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const specProduct = await Product.update(req.body, { where: { id: id } });
-        await specProduct.save();
+        await Product.update(req.body, { where: { id: id } });
+
         res.status(200).send(`successfully edited..`);
 
     } catch (error) {
@@ -98,10 +98,26 @@ const deleteSpecProduct = async (req, res) => {
 }
 
 
+
+//6.get Published Product...
+
+const getPublishedProduct = async (req, res) => {
+    try {
+        const publishedProduct = await Product.findAll({ where: { published: true } });
+        res.status(200).send(publishedProduct)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+
 module.exports = {
     addProduct,
     getAllProduct,
     getSpecProduct,
     updateSpecProduct,
-    deleteSpecProduct
+    deleteSpecProduct,
+    getPublishedProduct
 }
