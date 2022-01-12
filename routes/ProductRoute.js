@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const productController = require('../controllers/ProductController');
+const reviewController = require('../controllers/ReviewController');
 
 
 //create route...
@@ -30,6 +31,8 @@ router.delete('/allProducts/:id', productController.deleteSpecProduct);
 
 
 router.get('/publishedProduct', productController.getPublishedProduct);
+
+//....Review..........................Section.......
 
 
 
