@@ -33,6 +33,33 @@ router.delete('/allProducts/:id', productController.deleteSpecProduct);
 router.get('/publishedProduct', productController.getPublishedProduct);
 
 //....Review..........................Section.......
+//1.add review...route...
+router.post('/add-review', reviewController.addReview);
+
+
+//2.get all review...
+
+
+router.get('/allReview', reviewController.getAllReviews);
+
+
+//3.get one spec review route...
+
+router.get('/allReview/:id', reviewController.getSpecReview),
+
+
+    //4.update spec review route...
+
+    router.put('/allReview/:id', reviewController.updateReview);
+
+
+
+//5.delete spec review route...
+
+
+router.delete('/allReview/:id', reviewController.deleteSpecReview);
+
+
 
 
 

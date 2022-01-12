@@ -9,8 +9,11 @@ const Review = db.reviews;
 
 const addReview = async (req, res) => {
     try {
-        const { rating, description } = req.body;
-        const review = await Review.create(rating, description);
+        let data = {
+            rating: req.body.rating,
+            description: req.body.description
+        }
+        const review = await Review.create(data);
         res.status(200).send(review);
     } catch (error) {
         console.log(error);
@@ -49,7 +52,7 @@ const getSpecReview = async (req, res) => {
 const updateReview = async (req, res) => {
     try {
         const { id } = req.params;
-        await Review.update({ where: { id: id } });
+        await Review.update(req.body, { where: { id: id } });
         res.status(200).send(`successfully updated this id ${id}`);
     } catch (error) {
         console.log(error);
