@@ -77,7 +77,7 @@ router.delete('/allReview/:id', reviewController.deleteSpecReview);
 
 //6. one to many relationship product has many reviews....
 
-router.get('/productReview', productController.getProductReviews);
+router.get('/productReview/:id', productController.getProductReviews);
 
 
 
