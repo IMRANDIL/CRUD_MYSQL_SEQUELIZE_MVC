@@ -118,14 +118,14 @@ const getPublishedProduct = async (req, res) => {
 
 const getProductReviews = async (req, res) => {
     try {
-        const { id } = req.params;
+        // const { id } = req.params;
         const data = await Product.findAll({
             include: [{
                 model: Review,
                 as: 'review'
             }],
             where: {
-                id: id
+                id: 1
             }
         });
 
