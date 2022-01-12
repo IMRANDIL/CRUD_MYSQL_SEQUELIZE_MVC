@@ -32,8 +32,22 @@ router.delete('/allProducts/:id', productController.deleteSpecProduct);
 
 router.get('/publishedProduct', productController.getPublishedProduct);
 
+
+
+
+
+
+
+
+
+
+
+
+
 //....Review..........................Section.......
+
 //1.add review...route...
+
 router.post('/add-review', reviewController.addReview);
 
 
@@ -61,7 +75,9 @@ router.delete('/allReview/:id', reviewController.deleteSpecReview);
 
 
 
+//6. one to many relationship product has many reviews....
 
+router.get('/productReview', productController.getProductReviews);
 
 
 

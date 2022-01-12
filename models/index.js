@@ -42,7 +42,29 @@ db.reviews = require('./ReviewModel.js')(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
     console.log(`resync done...`);
+});
+
+
+
+
+
+// 1 to many relationship.....
+
+
+
+db.products.hasMany(db.reviews, {
+    foreignKey: 'id',
+    as: 'review'
+});
+
+
+db.reviews.belongsTo(db.products, {
+    foreignKey: 'id',
+    as: 'product'
 })
+
+
+
 
 
 module.exports = db;
